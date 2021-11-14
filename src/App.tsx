@@ -1,5 +1,5 @@
 import React from 'react';
-import Actionboard from './pages/Actionboard';
+import Actionboard from './components/Actionboard';
 
 
 function App() {
