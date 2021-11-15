@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
-import {Button, Container, Typography, Grid, InputBase} from '@mui/material'
+import {Box, Button, Container, Typography, Grid, InputBase, Tab, Tabs} from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 
 const Search = styled('div')(({ theme }) => ({
@@ -85,7 +85,7 @@ const Actionboard = ()  => {
                             Actionboard
                         </Typography>
                     </Grid>
-                    <Grid item style={{marginTop: '30px'}}>
+                    <Grid item style={{marginTop: '15px'}}>
                         <Search>
                             <SearchIconWrapper>
                                 <SearchIcon />
@@ -98,15 +98,24 @@ const Actionboard = ()  => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Container>
-                <div>
-                    <button>tab1</button>
-                    <button>tab2</button>
-                    <button>tab3</button>
-                </div>
-                <div>
-                    Tab Components
-                </div>
+            <Container maxWidth={false} style={{marginTop: '30px'}}>
+                <Box sx={{ maxWidth: 480, bgcolor: 'rgb(191, 191, 191)' }}>
+                    <Tabs
+                        // value={value}
+                        // onChange={handleChange}
+                        variant="scrollable"
+                        scrollButtons
+                        aria-label="scrollable auto tabs example"
+                    >
+                            <Tab label="Item One" />
+                            <Tab label="Item Two" />
+                            <Tab label="Item Three" />
+                            <Tab label="Item Four" />
+                            <Tab label="Item Five" />
+                            <Tab label="Item Six" />
+                            <Tab label="Item Seven" />
+                    </Tabs>
+                </Box>
             </Container>
         </>
     )
