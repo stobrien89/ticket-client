@@ -47,6 +47,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 const Actionboard = ()  => {
+    
     return(
         <>
             <Grid
@@ -116,6 +117,15 @@ const Actionboard = ()  => {
                             <Tab label="Item Seven" />
                     </Tabs>
                 </Box>
+                <Grid
+                    container
+                    alignItems="center"
+                    justifyContent="center"
+                    direction="column"
+                    style={{border: '2px solid black'}}
+                >
+
+                </Grid>
             </Container>
         </>
     )
