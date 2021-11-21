@@ -11,7 +11,7 @@ const Table = () => {
         (async () => {
             try {
                 const response = await fetch('http://localhost:8000/api/tickets')
-                const data = response.json();
+                const data = await response.json();
                 setTickets(data);
             }catch(error) {
                 console.error(error)
@@ -19,12 +19,43 @@ const Table = () => {
         })()
     }, [])
 
+    const columns = [
+        { field: 'id', headerName: 'ID', width: 100 },
+        {
+          field: 'title',
+          headerName: 'Title',
+          width: 150,
+          editable: true,
+        },
+        {
+          field: 'source',
+          headerName: 'Source',
+          width: 150,
+          editable: true,
+        },
+        {
+          field: 'assignee',
+          headerName: 'Assignee',
+          width: 110,
+          editable: true,
+        },
+        {
+          field: 'tags',
+          headerName: 'Tags',
+          sortable: false,
+          width: 160,
+        },
+      ];
 
+      const ticketList = tickets.map((ticket, index) => {
+          return {id: index, ...ticket};
+      })
+      
     
     return (
         <div style={{ height: 400, width: '100%' }}>
             <DataGrid
-                rows={rows}
+                rows={ticketList}
                 columns={columns}
                 pageSize={5}
                 rowsPerPageOptions={[5]}

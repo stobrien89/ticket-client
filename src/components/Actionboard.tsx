@@ -1,5 +1,8 @@
 import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
+
+import Table from './Table';
+
 import {Box, Button, Container, Typography, Grid, InputBase, Tab, Tabs} from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -124,7 +127,7 @@ const Actionboard = ()  => {
                     direction="column"
                     style={{border: '2px solid black'}}
                 >
-
+                    <Table></Table>
                 </Grid>
             </Container>
         </>
