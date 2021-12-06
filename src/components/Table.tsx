@@ -36,19 +36,19 @@ const Table = () => {
         {
           field: 'assignee',
           headerName: 'Assignee',
-          width: 110,
+          width: 150,
           editable: true,
         },
         {
           field: 'tags',
           headerName: 'Tags',
           sortable: false,
-          width: 160,
+          width: 200,
         },
       ];
 
       const ticketList = tickets.map((ticket, index) => {
-          return {id: index, ...ticket};
+          return {id: index, ...ticket as {}};
       })
       
     
