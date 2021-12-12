@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 
 import Table from './Table';
+import Dropdown from './Dropdown';
 
 import {Box, Button, Container, Typography, Grid, InputBase, Tab, Tabs} from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
@@ -50,7 +51,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 const Actionboard = ()  => {
-    
+    const [team, setTeam] = useState('');
+
+    const handleChange = (event) => {
+        setTeam(event.target.value);
+    }
+
     return(
         <>
             <Grid
@@ -103,23 +109,29 @@ const Actionboard = ()  => {
                 </Grid>
             </Grid>
             <Container maxWidth={false} style={{marginTop: '30px'}}>
-                <Box sx={{ maxWidth: 480, bgcolor: 'rgb(191, 191, 191)' }}>
-                    <Tabs
-                        // value={value}
-                        // onChange={handleChange}
-                        variant="scrollable"
-                        scrollButtons
-                        aria-label="scrollable auto tabs example"
-                    >
-                            <Tab label="Item One" />
-                            <Tab label="Item Two" />
-                            <Tab label="Item Three" />
-                            <Tab label="Item Four" />
-                            <Tab label="Item Five" />
-                            <Tab label="Item Six" />
-                            <Tab label="Item Seven" />
-                    </Tabs>
-                </Box>
+                <Grid
+                    container
+                    direction="row"
+                >
+                    <Box sx={{ maxWidth: 480, bgcolor: 'rgb(191, 191, 191)' }}>
+                        <Tabs
+                            // value={value}
+                            // onChange={handleChange}
+                            variant="scrollable"
+                            scrollButtons
+                            aria-label="scrollable auto tabs example"
+                        >
+                                <Tab label="Item One" />
+                                <Tab label="Item Two" />
+                                <Tab label="Item Three" />
+                                <Tab label="Item Four" />
+                                <Tab label="Item Five" />
+                                <Tab label="Item Six" />
+                                <Tab label="Item Seven" />
+                        </Tabs>
+                    </Box>
+                    <Dropdown handleChange={handleChange} team={team}/>
+                </Grid>
                 <Grid
                     container
                     alignItems="center"
@@ -127,6 +139,7 @@ const Actionboard = ()  => {
                     direction="column"
                     style={{border: '2px solid black'}}
                 >
+                    <Table></Table>
                     <Table></Table>
                 </Grid>
             </Container>
